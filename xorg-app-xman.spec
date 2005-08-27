@@ -1,5 +1,3 @@
-# $Rev: 3405 $, $Date: 2005-08-27 17:42:47 $
-#
 Summary:	xman aplication
 Summary(pl):	Aplikacja xman
 Name:		xorg-app-xman
@@ -17,10 +15,7 @@ BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	xorg-lib-libXprintUtil-devel
 BuildRequires:	xorg-util-util-macros
 BuildRequires:	pkgconfig >= 0.19
-BuildRoot:	%{tmpdir}/xman-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 xman application.
@@ -28,11 +23,9 @@ xman application.
 %description -l pl
 Aplikacja xman.
 
-
 %prep
 %setup -q -n xman-%{version}
 %patch0 -p1
-
 
 %build
 %{__aclocal}
@@ -43,17 +36,14 @@ Aplikacja xman.
 
 %{__make}
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 
 %files
 %defattr(644,root,root,755)
