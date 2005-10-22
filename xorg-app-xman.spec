@@ -12,7 +12,7 @@ BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 # to get /etc/man.config path
 BuildRequires:	man-config
-BuildRequires:	pkgconfig >= 0.19
+BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	xorg-lib-libXprintUtil-devel
 BuildRequires:	xorg-util-util-macros >= 0.99.1
