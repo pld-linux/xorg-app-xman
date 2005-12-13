@@ -1,12 +1,12 @@
 Summary:	xman aplication
 Summary(pl):	Aplikacja xman
 Name:		xorg-app-xman
-Version:	0.99.2
+Version:	0.99.3
 Release:	0.1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC2/app/xman-%{version}.tar.bz2
-# Source0-md5:	f86a607b16f0ac72fbc906263fa5c667
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/app/xman-%{version}.tar.bz2
+# Source0-md5:	0bd1276f1b105148eba05374ca42789d
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -14,8 +14,9 @@ BuildRequires:	automake
 BuildRequires:	man-config
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXaw-devel
+BuildRequires:	xorg-lib-libXp-devel
 BuildRequires:	xorg-lib-libXprintUtil-devel
-BuildRequires:	xorg-util-util-macros >= 0.99.1
+BuildRequires:	xorg-util-util-macros >= 0.99.2
 Requires:	man-config
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,8 +42,7 @@ Aplikacja xman.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	appmandir=%{_mandir}/man1
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
