@@ -1,12 +1,12 @@
 Summary:	xman aplication
 Summary(pl):	Aplikacja xman
 Name:		xorg-app-xman
-Version:	0.99.3
+Version:	1.0.1
 Release:	0.1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/app/xman-%{version}.tar.bz2
-# Source0-md5:	0bd1276f1b105148eba05374ca42789d
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/app/xman-%{version}.tar.bz2
+# Source0-md5:	1b00bd86dce25a6d57886c5bbb97faf0
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -16,6 +16,7 @@ BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	xorg-lib-libXp-devel
 BuildRequires:	xorg-lib-libXprintUtil-devel
+BuildRequires:	xorg-lib-libXt-devel >= 1.0.0
 BuildRequires:	xorg-util-util-macros >= 0.99.2
 Requires:	man-config
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -51,6 +52,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog
 %attr(755,root,root) %{_bindir}/*
-%{_libdir}/X11/app-defaults/*
-%{_datadir}/xman.help
+%{_datadir}/X11/app-defaults/*
+%{_datadir}/X11/xman.help
 %{_mandir}/man1/*.1x*
