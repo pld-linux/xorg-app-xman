@@ -7,6 +7,7 @@ License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/app/xman-%{version}.tar.bz2
 # Source0-md5:	855f2dbfa2aff58b8b9cd6a1c1120fad
+Patch0:		%{name}-confname.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -30,13 +31,16 @@ Aplikacja xman.
 
 %prep
 %setup -q -n xman-%{version}
+%patch0 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--with-localmanpath=/usr/local/man \
+	--with-sysmanpath=/usr/share/man
 
 %{__make}
 
@@ -52,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog
-%attr(755,root,root) %{_bindir}/*
-%{_datadir}/X11/app-defaults/*
+%attr(755,root,root) %{_bindir}/xman
+%{_datadir}/X11/app-defaults/Xman
 %{_datadir}/X11/xman.help
-%{_mandir}/man1/*.1x*
+%{_mandir}/man1/xman.1x*
