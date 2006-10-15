@@ -1,0 +1,41 @@
+--- xman-1.0.2/xman.man.orig	2004-04-23 21:54:58.000000000 +0200
++++ xman-1.0.2/xman.man	2006-10-15 23:03:30.177408500 +0200
+@@ -93,8 +93,8 @@
+ .SH "BSD AND LINUX SYSTEMS"        
+ .PP
+ In newer BSD and Linux systems, \fIXman\fP will search for a file named
+-\fI/etc/man.conf\fP which will contain the list of directories containing
+-manual pages. See \fIman.conf\fP(5) for a complete description of the file
++\fIMANCONF\fP which will contain the list of directories containing
++manual pages. See \fIBASEMANCONF\fP(5) for a complete description of the file
+ format.
+ .SH "THE MANDESC FILE"        
+ .PP
+--- xman-1.0.2/Makefile.am.orig	2005-12-08 18:55:17.000000000 +0100
++++ xman-1.0.2/Makefile.am	2006-10-15 23:05:25.844637250 +0200
+@@ -101,7 +101,9 @@
+ 	-e 's|__libmansuffix__|$(LIB_MAN_SUFFIX)|g' \
+ 	-e 's|__adminmansuffix__|$(ADMIN_MAN_SUFFIX)|g' \
+ 	-e 's|__miscmansuffix__|$(MISC_MAN_SUFFIX)|g' \
+-	-e 's|__filemansuffix__|$(FILE_MAN_SUFFIX)|g'
++	-e 's|__filemansuffix__|$(FILE_MAN_SUFFIX)|g' \
++	-e 's|BASEMANCONF|$(BASEMANCONF)|g' \
++	-e 's|MANCONF|$(MANCONF)|g'
+ 
+ SUFFIXES = .$(APP_MAN_SUFFIX) .man
+ 
+--- xman-1.0.2/configure.ac.orig	2006-04-02 03:12:38.000000000 +0200
++++ xman-1.0.2/configure.ac	2006-10-15 23:04:53.894640500 +0200
+@@ -67,8 +67,11 @@
+ AC_CHECK_FILE([/etc/man.conf], [MANCONF="/etc/man.conf"], 
+     AC_CHECK_FILE([/etc/man.config], [MANCONF="/etc/man.config"], 
+ 	AC_CHECK_FILE([/etc/manpath.config], [MANCONF="/etc/manpath.config"])))
+-	
++
+ if test x$MANCONF != x ; then
++    AC_SUBST(MANCONF)
++    BASEMANCONF="`basename $MANCONF`"
++    AC_SUBST(BASEMANCONF)
+     AC_DEFINE_UNQUOTED(MANCONF, "$MANCONF", 
+ 	[Define to path to man config file if you have one])
+ 
