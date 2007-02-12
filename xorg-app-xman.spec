@@ -1,5 +1,5 @@
 Summary:	xman aplication
-Summary(pl.UTF-8):   Aplikacja xman
+Summary(pl.UTF-8):	Aplikacja xman
 Name:		xorg-app-xman
 Version:	1.0.2
 Release:	2
