@@ -1,5 +1,5 @@
 Summary:	xman aplication
-Summary(pl):	Aplikacja xman
+Summary(pl.UTF-8):   Aplikacja xman
 Name:		xorg-app-xman
 Version:	1.0.2
 Release:	2
@@ -26,7 +26,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 xman application.
 
-%description -l pl
+%description -l pl.UTF-8
 Aplikacja xman.
 
 %prep
