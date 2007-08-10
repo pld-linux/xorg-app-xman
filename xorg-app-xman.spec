@@ -1,5 +1,5 @@
-Summary:	xman aplication
-Summary(pl.UTF-8):	Aplikacja xman
+Summary:	xman aplication - manual display program for the X Window System
+Summary(pl.UTF-8):	Aplikacja xman - program do wyświetlania manuali dla systemu X Window
 Name:		xorg-app-xman
 Version:	1.0.3
 Release:	1
@@ -24,10 +24,10 @@ Requires:	xorg-lib-libXt >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-xman application.
+xman is a manual page browser.
 
 %description -l pl.UTF-8
-Aplikacja xman.
+xman to przeglądarka stron manuala.
 
 %prep
 %setup -q -n xman-%{version}
