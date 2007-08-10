@@ -1,12 +1,12 @@
 Summary:	xman aplication
 Summary(pl.UTF-8):	Aplikacja xman
 Name:		xorg-app-xman
-Version:	1.0.2
-Release:	2
+Version:	1.0.3
+Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/app/xman-%{version}.tar.bz2
-# Source0-md5:	855f2dbfa2aff58b8b9cd6a1c1120fad
+# Source0-md5:	3d3a4b310a65ccce82472ef83acbbf97
 Patch0:		%{name}-confname.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
