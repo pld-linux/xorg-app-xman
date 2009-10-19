@@ -24,14 +24,11 @@
  
  SUFFIXES = .$(APP_MAN_SUFFIX) .man
  
---- xman-1.0.2/configure.ac.orig	2006-04-02 03:12:38.000000000 +0200
-+++ xman-1.0.2/configure.ac	2006-10-15 23:04:53.894640500 +0200
-@@ -67,8 +67,11 @@
- AC_CHECK_FILE([/etc/man.conf], [MANCONF="/etc/man.conf"], 
-     AC_CHECK_FILE([/etc/man.config], [MANCONF="/etc/man.config"], 
- 	AC_CHECK_FILE([/etc/manpath.config], [MANCONF="/etc/manpath.config"])))
--	
-+
+--- xman-1.1.0/configure.ac.orig	2009-10-16 23:09:03.000000000 +0200
++++ xman-1.1.0/configure.ac	2009-10-19 18:55:58.673024932 +0200
+@@ -83,6 +83,9 @@
+ fi
+ 
  if test x$MANCONF != x ; then
 +    AC_SUBST(MANCONF)
 +    BASEMANCONF="`basename $MANCONF`"
