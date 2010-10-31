@@ -11,19 +11,17 @@
  format.
  .SH "THE MANDESC FILE"        
  .PP
---- xman-1.0.2/Makefile.am.orig	2005-12-08 18:55:17.000000000 +0100
-+++ xman-1.0.2/Makefile.am	2006-10-15 23:05:25.844637250 +0200
-@@ -101,7 +101,9 @@
- 	-e 's|__libmansuffix__|$(LIB_MAN_SUFFIX)|g' \
- 	-e 's|__adminmansuffix__|$(ADMIN_MAN_SUFFIX)|g' \
- 	-e 's|__miscmansuffix__|$(MISC_MAN_SUFFIX)|g' \
--	-e 's|__filemansuffix__|$(FILE_MAN_SUFFIX)|g'
-+	-e 's|__filemansuffix__|$(FILE_MAN_SUFFIX)|g' \
-+	-e 's|BASEMANCONF|$(BASEMANCONF)|g' \
-+	-e 's|MANCONF|$(MANCONF)|g'
+--- xman-1.1.1/Makefile.am.orig	2010-10-31 02:28:24.000000000 +0200
++++ xman-1.1.1/Makefile.am	2010-10-31 14:31:27.471101613 +0100
+@@ -73,7 +73,7 @@
  
- SUFFIXES = .$(APP_MAN_SUFFIX) .man
+ # String replacements in MAN_SUBSTS now come from xorg-macros.m4 via configure
+ .man.$(APP_MAN_SUFFIX):
+-	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) < $< > $@
++	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) -e 's|BASEMANCONF|$(BASEMANCONF)|g' -e 's|MANCONF|$(MANCONF)|g' < $< > $@
  
+ 
+ .PHONY: ChangeLog INSTALL
 --- xman-1.1.0/configure.ac.orig	2009-10-16 23:09:03.000000000 +0200
 +++ xman-1.1.0/configure.ac	2009-10-19 18:55:58.673024932 +0200
 @@ -83,6 +83,9 @@
