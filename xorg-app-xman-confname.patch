@@ -1,27 +1,23 @@
---- xman-1.0.2/xman.man.orig	2004-04-23 21:54:58.000000000 +0200
-+++ xman-1.0.2/xman.man	2006-10-15 23:03:30.177408500 +0200
+--- xman-1.1.2/man/xman.man.orig	2011-01-14 04:39:17.000000000 +0100
++++ xman-1.1.2/man/xman.man	2011-06-30 19:19:24.423990463 +0200
 @@ -93,8 +93,8 @@
- .SH "BSD AND LINUX SYSTEMS"        
+ .SH "BSD AND LINUX SYSTEMS"
  .PP
  In newer BSD and Linux systems, \fIXman\fP will search for a file named
 -\fI/etc/man.conf\fP which will contain the list of directories containing
--manual pages. See \fIman.conf\fP(5) for a complete description of the file
+-manual pages. See \fIman.conf\fP(__filemansuffix__) for a complete description of the file
 +\fIMANCONF\fP which will contain the list of directories containing
-+manual pages. See \fIBASEMANCONF\fP(5) for a complete description of the file
++manual pages. See \fIBASEMANCONF\fP(__filemansuffix__) for a complete description of the file
  format.
- .SH "THE MANDESC FILE"        
+ .SH "THE MANDESC FILE"
  .PP
---- xman-1.1.1/Makefile.am.orig	2010-10-31 02:28:24.000000000 +0200
-+++ xman-1.1.1/Makefile.am	2010-10-31 14:31:27.471101613 +0100
-@@ -73,7 +73,7 @@
- 
+--- xman-1.1.2/man/Makefile.am.orig	2011-01-14 04:39:17.000000000 +0100
++++ xman-1.1.2/man/Makefile.am	2011-06-30 19:20:38.210659601 +0200
+@@ -10,3 +10,4 @@
  # String replacements in MAN_SUBSTS now come from xorg-macros.m4 via configure
  .man.$(APP_MAN_SUFFIX):
--	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) < $< > $@
+ 	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) < $< > $@
 +	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) -e 's|BASEMANCONF|$(BASEMANCONF)|g' -e 's|MANCONF|$(MANCONF)|g' < $< > $@
- 
- 
- .PHONY: ChangeLog INSTALL
 --- xman-1.1.0/configure.ac.orig	2009-10-16 23:09:03.000000000 +0200
 +++ xman-1.1.0/configure.ac	2009-10-19 18:55:58.673024932 +0200
 @@ -83,6 +83,9 @@
