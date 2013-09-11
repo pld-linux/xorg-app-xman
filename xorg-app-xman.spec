@@ -60,4 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xman
 %{_datadir}/X11/app-defaults/Xman
 %{_datadir}/X11/xman.help
-%{_mandir}/man1/xman.1x*
+%{_mandir}/man1/xman.1*
