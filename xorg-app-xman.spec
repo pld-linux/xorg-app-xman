@@ -1,20 +1,20 @@
 Summary:	xman aplication - manual display program for the X Window System
 Summary(pl.UTF-8):	Aplikacja xman - program do wyświetlania manuali dla systemu X Window
 Name:		xorg-app-xman
-Version:	1.1.2
-Release:	2
+Version:	1.1.3
+Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/app/xman-%{version}.tar.bz2
-# Source0-md5:	17d89b043083cba9e335379fc61981c0
+# Source0-md5:	77d6489d46ed4a0729f3bdc9a0bfc50f
 Patch0:		%{name}-confname.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXaw-devel
-BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXt-devel >= 1.0.0
+BuildRequires:	xorg-proto-xproto-devel >= 7.0.17
 BuildRequires:	xorg-util-util-macros >= 1.8
 Requires:	man-db
 Requires:	xorg-lib-libXt >= 1.0.0
@@ -38,6 +38,7 @@ X Athena Widgets (Xaw).
 %{__autoheader}
 %{__automake}
 %configure \
+	GROFF=/usr/bin/groff \
 	--with-localmanpath=/usr/local/man \
 	--with-sysmanpath=/usr/share/man \
 	--with-manconfig=/etc/man_db.conf
