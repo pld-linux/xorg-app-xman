@@ -1,14 +1,14 @@
 Summary:	xman aplication - manual display program for the X Window System
 Summary(pl.UTF-8):	Aplikacja xman - program do wyświetlania manuali dla systemu X Window
 Name:		xorg-app-xman
-Version:	1.1.4
+Version:	1.1.5
 Release:	1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/individual/app/xman-%{version}.tar.bz2
-# Source0-md5:	f9ac24d44ccdd6978d3a2c57e8746a8a
+Source0:	https://xorg.freedesktop.org/releases/individual/app/xman-%{version}.tar.bz2
+# Source0-md5:	629436867b202098967636b17c8d303c
 Patch0:		%{name}-confname.patch
-URL:		http://xorg.freedesktop.org/
+URL:		https://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	pkgconfig >= 1:0.19
@@ -56,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog README
+%doc COPYING ChangeLog README.md
 %attr(755,root,root) %{_bindir}/xman
 %{_datadir}/X11/app-defaults/Xman
 %{_datadir}/X11/xman.help
