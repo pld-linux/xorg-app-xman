@@ -32,7 +32,7 @@ X Athena Widgets (Xaw).
 
 %prep
 %setup -q -n xman-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__aclocal}
